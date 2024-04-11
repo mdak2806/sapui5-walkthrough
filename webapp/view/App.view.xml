@@ -1,0 +1,18 @@
+<mvc:View
+controllerName="ui5.sapui5demo.controller.App"
+xmlns="sap.m"
+xmlns:mvc="sap.ui.core.mvc">
+
+    <Text text="Hello Ui5 again" />
+    <Button 
+        text="{i18n>showHelloButtonText}"
+        press=".onShowHello"
+    ></Button>
+    <Input
+        value="{/recipient/name}"
+        description="Hello {/recipient/name}"
+        valueLiveUpdate="true"
+        width="60%"
+    ></Input>
+
+</mvc:View>
