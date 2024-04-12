@@ -5,6 +5,9 @@ sap.ui.define([
         "use strict"
 
         return Controller.extend("ui5.sapui5demo.controller.App", {
+            onOpenDialog: function(){
+                this.getOwnerComponent().openHelloDialog();
+            }
 
         })
     }

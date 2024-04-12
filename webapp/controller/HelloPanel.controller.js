@@ -22,25 +22,7 @@ sap.ui.define([
             },
 
             onOpenDialog: function(){
-                var oView= this.getView();
-
-                // Create the dialog lazily
-                if(!this.byId("helloDialog")){
-                    // load async xml fragment
-
-                    Fragment.load({
-                        id: oView.getId(),
-                        name: "ui5.sapui5demo.view.HelloDialog",
-                        controller: this
-                    }).then(function(oDialog){
-                        // connect the dialog to the root view of component
-                        oView.addDependent(oDialog);
-                        oDialog.open();
-
-                    })
-                } else{
-                    this.byId('helloDialog').open();
-                }
+              this.getOwnerCompeont().openHelloDialog();
             },
 
             // function to close the popup

@@ -11,6 +11,13 @@ displayBlock="true">
         <pages>
             <Page 
             title="{i18n>homePageTitle}">
+                <headerContent>
+                    <Button
+                    icon="sap-icon://hello-world"
+                    press=".onOpenDialog"
+                     >
+                    </Button>
+                </headerContent>
                 <content>
               <mvc:XMLView viewName="ui5.sapui5demo.view.HelloPanel"/>
                 </content>
