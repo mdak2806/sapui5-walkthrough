@@ -1,8 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
+    "sap/ui/core/Fragment"
 ], 
-    function(Controller, MessageToast){
+    function(Controller, MessageToast, Fragment){
         "use strict"
         
         return Controller.extend("ui5.sapui5demo.controller.HelloPanel", {
@@ -18,6 +19,27 @@ sap.ui.define([
 
 
 
+            },
+
+            onOpenDialog: function(){
+                var oView= this.getView();
+
+                // Create the dialog lazily
+                if(!this.byId("helloDialog")){
+                    // load async xml fragment
+
+                    Fragment.load({
+                        id: oView.getId(),
+                        name: "ui5.sapui5demo.view.HelloDialog"
+                    }).then(function(oDialog){
+                        // connect the dialog to the root view of component
+                        oView.addDependent(oDialog);
+                        oDialog.open();
+
+                    })
+                } else{
+                    this.byId('helloDialog').open();
+                }
             }
         })
     }
