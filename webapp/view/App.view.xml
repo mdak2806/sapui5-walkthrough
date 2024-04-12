@@ -20,6 +20,8 @@ displayBlock="true">
                 </headerContent>
                 <content>
               <mvc:XMLView viewName="ui5.sapui5demo.view.HelloPanel"/>
+              <mvc:XMLView viewName="ui5.sapui5demo.view.InvoiceList"/>
+
                 </content>
 
             </Page> 
