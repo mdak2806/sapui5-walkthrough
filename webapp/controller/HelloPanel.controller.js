@@ -30,7 +30,8 @@ sap.ui.define([
 
                     Fragment.load({
                         id: oView.getId(),
-                        name: "ui5.sapui5demo.view.HelloDialog"
+                        name: "ui5.sapui5demo.view.HelloDialog",
+                        controller: this
                     }).then(function(oDialog){
                         // connect the dialog to the root view of component
                         oView.addDependent(oDialog);
@@ -40,6 +41,11 @@ sap.ui.define([
                 } else{
                     this.byId('helloDialog').open();
                 }
+            },
+
+            // function to close the popup
+            onClosingDialog: function(){
+                this.byId("helloDialog").close();
             }
         })
     }

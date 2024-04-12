@@ -5,8 +5,21 @@
     <Dialog 
      id="helloDialog"
      title="Hello {/recipient/name}"
+
      >
-    
+     <content>
+        <core:Icon 
+        src="sap-icon://hello-world"
+        size="8rem"
+        class="sapUiMediumMargin">
+        </core:Icon>
+     </content>
+        <beginButton>
+            <Button 
+            text="{i18n>dialogCloseButtonText}"
+            press=".onClosingDialog"
+            ></Button>
+        </beginButton>
     </Dialog>
 
 </core:FragmentDefinition>
