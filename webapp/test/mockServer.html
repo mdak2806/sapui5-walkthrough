@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>SAPUI5 Walkthrough Test Page</title>
+    <!-- 1 issue below time 16.31 -->
+    <!-- For data onInit and resourceroot check functionality otherwise create files from template -->
+    <!-- src tag updated to take it from online -->
+    <!-- Oninit => update manifest.json id then added the directionairy  -->
+    <!-- resourceroots => update manifest.json id then added the directionairy  -->
+    <!-- https://ui5.sap.com/1.108.7/resources/sap-ui-core.js
+        this url is used instead of resources/sap-ui-core.js
+        quicker to load and excute-->
+
+    <script id="sap-ui-bootstrap" 
+    src="resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_horizon" 
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-async="true" 
+        data-sap-ui-onInit="module:sap/ui/demo/sapui5demo/test/initMockServer"
+        data-sap-ui-resourceroots='{
+                "ui5.sapui5demo": "./"
+            }'>
+
+            </script>
+  
+</head>
+<!-- adding a id tag to use a reference -->
+
+<body class="sapUiBody" id="content">
+    <div
+    data-sap-ui-component data-name="ui5.sapui5demo"
+    data-id="container"
+    data-settings='{"id": "sapui5demo"}'
+    >
+    </div>
+
+</body>
+
+</html>
+
