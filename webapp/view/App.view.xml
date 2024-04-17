@@ -7,25 +7,8 @@ displayBlock="true">
     <Text text="Hello Ui5 again" />
     <!-- shell adds the fiori background thats required for dev -->
  <Shell>
-    <App class="myAppDemoWT">
-        <pages>
-            <Page 
-            title="{i18n>homePageTitle}">
-                <headerContent>
-                    <Button
-                    icon="sap-icon://hello-world"
-                    press=".onOpenDialog"
-                     >
-                    </Button>
-                </headerContent>
-                <content>
-              <mvc:XMLView viewName="ui5.sapui5demo.view.HelloPanel"/>
-              <mvc:XMLView viewName="ui5.sapui5demo.view.InvoiceList"/>
-
-                </content>
-
-            </Page> 
-        </pages>
+    <App class="myAppDemoWT" id="app">
+        
      </App> 
  </Shell>
 
