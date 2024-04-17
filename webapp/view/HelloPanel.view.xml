@@ -1,43 +1,44 @@
+<!-- Define an XML view with the controller named "HelloPanel" -->
 <mvc:View
     controllerName="ui5.sapui5demo.controller.HelloPanel"
- xmlns="sap.m"
-xmlns:mvc="sap.ui.core.mvc"
-displayBlock="true"
-
-> 
-  <Panel 
-                    headerText="{i18n>helloPanelTitle}"
-                    class="sapUiResponsiveMargin"
-                    width="auto">
-                        
-                        <content>
-                        <Button 
-                        id="helloDialogButton"
-                        icon="sap-icon://world"
-                        text="{i18n>openDialogButtonText}"
-                        press=".onOpenDialog"
-                        class="sapUiSmallMarginEnd">
-                        </Button>
-                            <Button 
-                                text="{i18n>showHelloButtonText}"
-                                press=".onShowHello"
-                                class="myCustomButton"
-
-                            ></Button>
-                            <Input       
-                                value="{/recipient/name}"
-                                description="Hello {/recipient/name}"
-                                valueLiveUpdate="true"
-                                width="60%"/>
-                            <FormattedText 
-                                htmlText="Hello {/recipient/name}"
-                                class="sapUiSmallMargin 
-                                sapThemeHighlight-asColor 
-                                myCustomText"
-
-                            />
-                        </content>
-                        
-                    </Panel>
-
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+>
+    <!-- Define a Panel control with a header text bound to the "helloPanelTitle" property of the i18n model, with responsive margin, and auto width -->
+    <Panel
+        headerText="{i18n>helloPanelTitle}"
+        class="sapUiResponsiveMargin"
+        width="auto"
+    >
+        <!-- Define content inside the Panel -->
+        <content>
+            <!-- Define a Button control with an id "helloDialogButton", an icon indicating "world", text bound to the "openDialogButtonText" property of the i18n model, and a press event handler ".onOpenDialog" -->
+            <Button
+                id="helloDialogButton"
+                icon="sap-icon://world"
+                text="{i18n>openDialogButtonText}"
+                press=".onOpenDialog"
+                class="sapUiSmallMarginEnd"
+            />
+            <!-- Define another Button control with text bound to the "showHelloButtonText" property of the i18n model and a press event handler ".onShowHello", and a custom class "myCustomButton" -->
+            <Button
+                text="{i18n>showHelloButtonText}"
+                press=".onShowHello"
+                class="myCustomButton"
+            />
+            <!-- Define an Input control with value bound to the "/recipient/name" property, a description showing "Hello" followed by the value, and live value update -->
+            <Input
+                value="{/recipient/name}"
+                description="Hello {/recipient/name}"
+                valueLiveUpdate="true"
+                width="60%"
+            />
+            <!-- Define a FormattedText control with HTML text showing "Hello" followed by the value of "/recipient/name" property, and custom classes for styling -->
+            <FormattedText
+                htmlText="Hello {/recipient/name}"
+                class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"
+            />
+        </content>
+    </Panel>
 </mvc:View>

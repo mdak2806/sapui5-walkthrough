@@ -1,19 +1,27 @@
+<!-- Define an XML view with the controller named "Detail" -->
 <mvc:View
     controllerName="ui5.sapui5demo.controller.Detail"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns:wt="ui5.sapui5demo.control">
+    xmlns:wt="ui5.sapui5demo.control"
+>
+    <!-- Define a Page control with a title bound to the i18n model's "detailPageTitle" property and a navigation button -->
     <Page
         title="{i18n>detailPageTitle}"
         showNavButton="true"
-        navButtonPress=".onNavBack">
-            <ObjectHeader
+        navButtonPress=".onNavBack"
+    >
+        <!-- Define an ObjectHeader control with introductory text bound to the "ShipperName" property of the "invoice" model and a title bound to the "ProductName" property of the "invoice" model -->
+        <ObjectHeader
             intro="{invoice>ShipperName}"
+            title="{invoice>ProductName}"
+        />
 
-            title="{invoice>ProductName}"></ObjectHeader>
-
-    <wt:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change=".onRatingChange" />
-
+        <!-- Use a custom control "ProductRating" defined in the "ui5.sapui5demo.control" namespace with an id "rating" and a change event handler ".onRatingChange" -->
+        <wt:ProductRating
+            id="rating"
+            class="sapUiSmallMarginBeginEnd"
+            change=".onRatingChange"
+        />
     </Page>
-
 </mvc:View>

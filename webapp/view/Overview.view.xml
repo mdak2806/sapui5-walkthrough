@@ -1,18 +1,25 @@
+<!-- Define an XML view with the controller named "App" -->
 <mvc:View
     controllerName="ui5.sapui5demo.controller.App"
     xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc">
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <!-- Define a Page control with a title bound to the "homePageTitle" property of the i18n model -->
     <Page title="{i18n>homePageTitle}">
+        <!-- Define header content -->
         <headerContent>
+            <!-- Define a Button control with an icon indicating "hello-world" and a press event handler ".onOpenDialog" -->
             <Button
                 icon="sap-icon://hello-word"
-                press=".onOpenDialog">
-            </Button>
+                press=".onOpenDialog"
+            />
         </headerContent>
+        <!-- Define content -->
         <content>
-            <mvc:XMLView viewName="ui5.sapui5demo.view.HelloPanel"></mvc:XMLView>
-            <mvc:XMLView viewName="ui5.sapui5demo.view.InvoiceList"></mvc:XMLView>
+            <!-- Include an XML view named "HelloPanel" -->
+            <mvc:XMLView viewName="ui5.sapui5demo.view.HelloPanel" />
+            <!-- Include an XML view named "InvoiceList" -->
+            <mvc:XMLView viewName="ui5.sapui5demo.view.InvoiceList" />
         </content>
     </Page>
-
 </mvc:View>

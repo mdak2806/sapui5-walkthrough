@@ -1,146 +1,90 @@
+<!-- Define an XML view with the controller named "InvoiceList" -->
 <mvc:View
-controllerName="ui5.sapui5demo.controller.InvoiceList"
-xmlns="sap.m"
-xmlns:mvc="sap.ui.core.mvc">
-
+    controllerName="ui5.sapui5demo.controller.InvoiceList"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <!-- Define a Table control with an id "invoiceList", header text bound to the "invoiceListTitle" property of the i18n model, with responsive margin and auto width -->
     <Table
-    id="invoiceList"
-    headerText="{i18n>invoiceListTitle}"
-    class="sapUiResponsiveMargin"
-    width="auto"
-    items="{
-        path: 'invoice>/Invoices',
-        sorter: {
-            path: 'ShipperName',
-            group: true
-        }}"
-
+        id="invoiceList"
+        headerText="{i18n>invoiceListTitle}"
+        class="sapUiResponsiveMargin"
+        width="auto"
+        items="{path: 'invoice>/Invoices', sorter: {path: 'ShipperName', group: true}}"
     >
-    <headerToolbar>
-        <Toolbar 
+        <!-- Define a headerToolbar with a Toolbar containing a Title, ToolbarSpacer, and SearchField -->
+        <headerToolbar>
+            <Toolbar>
+                <Title text="{i18n>invoiceTitile}" />
+                <ToolbarSpacer />
+                <SearchField
+                    width="50%"
+                    search=".onFilterInvoices"
+                />
+            </Toolbar>
+        </headerToolbar>
+        <!-- Define columns for the table -->
+        <columns>
+            <!-- Define a Column with text aligned to the end, shown as popin on small screens, containing the quantity information -->
+            <Column
+                hAlign="End"
+                minScreenWidth="Small"
+                demandPopin="true"
+                width="4em"
             >
-            <Title 
-            text="{u18n>invoiceTitile}"
-            ></Title>
-            <ToolbarSpacer ></ToolbarSpacer>
-            <SearchField 
-            width="50%"
-            search=".onFilterInvoices"
-            ></SearchField>
-        </Toolbar>
-    </headerToolbar>
-        <columns
-        >
-            <Column 
-            hAlign="End"
-            minScreenWidth="Small"
-            demandPopin="true"
-            width="4em">
-                <Text text="{i18n>columnQuantity}"> 
-
-                </Text>
+                <Text text="{i18n>columnQuantity}" />
             </Column>
-
-            <Column >
-                <Text
-                text="{i18n>columnName}">
-
-                </Text>
+            <!-- Define a Column containing the name information -->
+            <Column>
+                <Text text="{i18n>columnName}" />
             </Column>
-              <Column 
-              minScreenWidth="small"
-              demandPopin="true">
-                <Text
-                text="{i18n>columnStatus}">
-
-                </Text>
-            </Column>
-
-            <Column 
-            minScreenWidth="Tablet"
-            demandPopin="false"
+            <!-- Define a Column shown as popin on small screens containing the status information -->
+            <Column
+                minScreenWidth="small"
+                demandPopin="true"
             >
-                <Text 
-                text="{i18n>columnSupplier}">
-                </Text>
-
+                <Text text="{i18n>columnStatus}" />
             </Column>
-            <Column 
-            hAlign="End">
-                <Text
-                text="{i18n>columnPrice}">
-
-                </Text>
+            <!-- Define a Column not shown as popin containing the supplier information -->
+            <Column
+                minScreenWidth="Tablet"
+                demandPopin="false"
+            >
+                <Text text="{i18n>columnSupplier}" />
+            </Column>
+            <!-- Define a Column with text aligned to the end containing the price information -->
+            <Column hAlign="End">
+                <Text text="{i18n>columnPrice}" />
             </Column>
         </columns>
+        <!-- Define items for the table -->
         <items>
-        <ColumnListItem 
-            type="Navigation"
-            press=".onPress"
-            
-        >
+            <!-- Define a ColumnListItem as a Navigation item, with press event handler ".onPress" -->
+            <ColumnListItem
+                type="Navigation"
+                press=".onPress"
+            >
+                <!-- Define cells for the ColumnListItem -->
                 <cells>
-                    <ObjectNumber 
-                    number="{invoiceQuantity}"
-                    emphasized="false" />
-                    
-                    <ObjectIdentifier 
-                        title="{invoice>ProductName}"
+                    <!-- Define an ObjectNumber control for the quantity -->
+                    <ObjectNumber
+                        number="{invoiceQuantity}"
+                        emphasized="false"
                     />
-                    <Text 
-                    text="{
-                        path: 'invoice>Status',
-                        formatter: '.formatter.statusText'
-
-                    }"/>
-
-                    <!-- invoice> shippername? -->
-                    <Text 
-                    text="{invoice>ShipperName}"/>
-
-                    <!-- controls in documentation -->
-
-                    <ObjectNumber 
-                        number="{ 
-                            parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>currency'} ], 
-                            type: 'sap.ui.model.type.currency',
-                            formatOptions: {
-                                showMeasure: false
-                            }
-                         }"
-                         unit="{view>currency}"
-                         state="{=${invoiceExtendedPrice} > 50 ? 'Error' : 'Success'}"
+                    <!-- Define an ObjectIdentifier control for the product name -->
+                    <ObjectIdentifier title="{invoice>ProductName}" />
+                    <!-- Define a Text control for the status -->
+                    <Text text="{invoice>Status}" />
+                    <!-- Define a Text control for the shipper name -->
+                    <Text text="{invoice>ShipperName}" />
+                    <!-- Define an ObjectNumber control for the extended price with currency -->
+                    <ObjectNumber
+                        number="{ parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>currency'} ], type: 'sap.ui.model.type.currency', formatOptions: {showMeasure: false} }"
+                        unit="{view>currency}"
+                        state="{=${invoiceExtendedPrice} > 50 ? 'Error' : 'Success'}"
                     />
-
                 </cells>
-        </ColumnListItem>
-            <!-- object list item -->
-            <!-- <ObjectListItem 
-            title="{invoice>Quantity} x {invoice>ProductName}"
-            number="{ 
-                parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
-                type: 'sap.ui.model.type.Currency',
-                formatOptions: {
-                    showMeasure: false
-                }
-             }"
-             numberUnit="{view>currency}"
-             numberState="{=${invoice>ExtendedPrice} > 50? 'Error' : 'Success'}"
-             type="Navigation"
-             press="onPress">
-
-            <firstStatus>
-                <ObjectStatus 
-                    text="{ 
-                        path: 'invoice>status',
-                        formatter: '.formatter.statusText'
-                     }">
-                </ObjectStatus>
-            </firstStatus>
-
-            </ObjectListItem> -->
+            </ColumnListItem>
         </items>
-
-
     </Table>
 </mvc:View>

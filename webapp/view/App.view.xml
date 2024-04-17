@@ -1,15 +1,21 @@
+<!-- Define an XML view with the controller named "App" -->
 <mvc:View
-controllerName="ui5.sapui5demo.controller.App"
-xmlns="sap.m"
-xmlns:mvc="sap.ui.core.mvc"
-displayBlock="true">
-
+    controllerName="ui5.sapui5demo.controller.App"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+>
+    <!-- Define a Text control with the text "Hello Ui5 again" -->
     <Text text="Hello Ui5 again" />
-    <!-- shell adds the fiori background thats required for dev -->
- <Shell>
-    <App class="myAppDemoWT" id="app">
-        
-     </App> 
- </Shell>
 
+    <!-- Define a Shell control -->
+    <Shell>
+        <!-- Define an App control with class "myAppDemoWT" and id "app" -->
+        <App
+            class="myAppDemoWT"
+            id="app"
+        >
+            <!-- Placeholder for application content -->
+        </App>
+    </Shell>
 </mvc:View>

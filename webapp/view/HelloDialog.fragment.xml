@@ -1,26 +1,29 @@
+<!-- Define a FragmentDefinition with xmlns namespace for sap.m controls and core namespace for sap.ui.core -->
 <core:FragmentDefinition
     xmlns="sap.m"
-    xmlns:core ="sap.ui.core"
+    xmlns:core="sap.ui.core"
 >
-    <Dialog 
-     id="helloDialog"
-     title="Hello {/recipient/name}"
-
-     >
-     <content>
-        <core:Icon 
-        src="sap-icon://hello-world"
-        size="8rem"
-        class="sapUiMediumMargin">
-        </core:Icon>
-     </content>
+    <!-- Define a Dialog control with id "helloDialog" and a title bound to the "recipient/name" property -->
+    <Dialog
+        id="helloDialog"
+        title="Hello {/recipient/name}"
+    >
+        <!-- Define the content of the Dialog -->
+        <content>
+            <!-- Define an Icon control with a source pointing to the "hello-world" icon, size set to 8rem, and a class for styling -->
+            <core:Icon
+                src="sap-icon://hello-world"
+                size="8rem"
+                class="sapUiMediumMargin"
+            />
+        </content>
+        <!-- Define the beginButton of the Dialog -->
         <beginButton>
-            <Button 
-            text="{i18n>dialogCloseButtonText}"
-            press=".onClosingDialog"
-            ></Button>
+            <!-- Define a Button control with text bound to the "dialogCloseButtonText" property of the i18n model and a press event handler ".onClosingDialog" -->
+            <Button
+                text="{i18n>dialogCloseButtonText}"
+                press=".onClosingDialog"
+            />
         </beginButton>
     </Dialog>
-
 </core:FragmentDefinition>
-

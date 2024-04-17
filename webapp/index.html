@@ -4,37 +4,39 @@
 <head>
     <meta charset="utf-8">
     <title>SAPUI5 Walkthrough</title>
-    <!-- 1 issue below time 16.31 -->
-    <!-- For data onInit and resourceroot check functionality otherwise create files from template -->
-    <!-- src tag updated to take it from online -->
-    <!-- Oninit => update manifest.json id then added the directionairy  -->
-    <!-- resourceroots => update manifest.json id then added the directionairy  -->
-    <!-- https://ui5.sap.com/1.108.7/resources/sap-ui-core.js
-        this url is used instead of resources/sap-ui-core.js
-        quicker to load and excute-->
+    <!-- Define the HTML head section with metadata and title -->
 
-    <script id="sap-ui-bootstrap" 
-    src="resources/sap-ui-core.js"
-        data-sap-ui-theme="sap_horizon" 
-        data-sap-ui-compatVersion="edge"
-        data-sap-ui-async="true" 
-        data-sap-ui-onInit="module:sap/ui/core/ComponentSupport"
-        data-sap-ui-resourceroots='{
-                "ui5.sapui5demo": "./"
-            }'>
+    <!-- Import the SAPUI5 library from the online resources -->
+    <!-- The src attribute points to the URL of the sap-ui-core.js library -->
+    <!-- Other attributes define configuration options for SAPUI5 -->
+    <!-- data-sap-ui-theme specifies the UI theme -->
+    <!-- data-sap-ui-compatVersion specifies the compatibility version -->
+    <!-- data-sap-ui-async indicates asynchronous loading -->
+    <!-- data-sap-ui-onInit specifies the initialization module -->
+    <!-- data-sap-ui-resourceroots defines resource roots for the component -->
+    <!-- The script tag is self-closing -->
 
-            </script>
-  
+    <script id="sap-ui-bootstrap" src="https://ui5.sap.com/1.108.7/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_horizon" data-sap-ui-compatVersion="edge" data-sap-ui-async="true"
+        data-sap-ui-onInit="module:sap/ui/core/ComponentSupport" data-sap-ui-resourceroots='{
+            "ui5.sapui5demo": "./"
+        }'>
+        </script>
+    <!-- End of SAPUI5 bootstrap script -->
+
 </head>
-<!-- adding a id tag to use a reference -->
 
 <body class="sapUiBody" id="content">
-    <div
-    data-sap-ui-component data-name="ui5.sapui5demo"
-    data-id="container"
-    data-settings='{"id": "sapui5demo"}'
-    >
+    <!-- Define the body section of the HTML document -->
+
+    <!-- Define a div element to hold the SAPUI5 component -->
+    <!-- The data-sap-ui-component attribute specifies the name of the component -->
+    <!-- The data-id attribute assigns an ID to the container -->
+    <!-- The data-settings attribute defines additional settings for the component -->
+
+    <div data-sap-ui-component data-name="ui5.sapui5demo" data-id="container" data-settings='{"id": "sapui5demo"}'>
     </div>
+    <!-- End of SAPUI5 component container -->
 
 </body>
 
